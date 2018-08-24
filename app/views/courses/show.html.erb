@@ -1,0 +1,11 @@
+<div>
+    <h1> <%= @course.name %> </h1>
+    <h3> (<%= @course.hours %> hours) </h3>
+    <hr>
+    <% @course_cohorts.each do |cohort_info| %>
+        <h4> <a href="/cohorts/<%= cohort_info.id%>"> <%= cohort_info.name %> </a> </h4>
+        <% @instructor = Instructor.find(cohort_info.instructor_id) %>
+        <h4><%= @instructor.last_name %><h4>
+    <% end %>
+    
+</div>

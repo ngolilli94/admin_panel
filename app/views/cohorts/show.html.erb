@@ -1,0 +1,21 @@
+<div> 
+    <h1><%= @cohort.name %></h1>
+    <h3>(<%= @cohort.start_date.strftime("%B %d, %Y") %> - <%= @cohort.end_date.strftime("%B %d, %Y") %> )</h3>
+    <h3> (<a href="/courses/<%= @cohort_course.id%>"><%= @cohort_course.name %></a>)
+    <h2> Instructor: <a href="/instructors/<%= @cohort_instructor.id%>"> <%= @cohort_instructor.first_name %> <%= @cohort_instructor.last_name %> </a>
+</div>
+<div>
+<h3>Student Roster</h2>
+<table>
+    <tr>
+        <th> Student ID </th>
+        <th> Name </th> 
+    </tr>
+        <% @cohort_students.order('last_name ASC').each do |student_info| %>
+    <tr>
+            <td> <%= student_info.id %>  </td>
+            <td> <a href="/students/<%= student_info.id%>"> <%= student_info.first_name %> <%= student_info.last_name %> </a> </td>
+        <% end %>
+    </tr>
+</table>
+</div>

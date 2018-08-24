@@ -1,0 +1,10 @@
+<%= form_with model: @student do |form| %>
+    <ul>
+        <li> Last Name: <%= form.text_field :last_name %> </li>
+        <li> First Name: <%= form.text_field :first_name %> </li>
+        <li> Age: <%= form.number_field :age %> </li>
+        <li> Photo: <%= form.text_field :pic %> </li>
+        <li> Cohort ID: <%= form.number_field :cohort_id %> </li>
+        <li> <%= form.submit %> </li>
+    </ul>
+  <% end %>

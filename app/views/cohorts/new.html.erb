@@ -1,0 +1,9 @@
+<%= form_with model: @cohort do |form| %>
+    <ul>
+        <li> Cohort: <%= form.text_field :name %> </li>
+        <li> Run Dates: <%= form.date_field :start_date %> - <%= form.date_field :end_date %> </li>
+        <li> Course ID: <%= form.number_field :course_id %> </li>
+        <li> Instructor ID: <%= form.number_field :instructor_id %> </li>
+        <li> <%= form.submit %> </li>
+    </ul>
+  <% end %>
