@@ -1,0 +1,30 @@
+#instructorContainer {
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    };
+
+    #instructorRoster {
+        width: 90%;
+
+        th, td {
+            text-align: left;
+            padding: 5px;
+        };
+
+        tr:nth-child(even) {
+            background-image: linear-gradient(lightblue, white);
+        };
+
+        tr:nth-child(odd) {
+            background-image: linear-gradient(skyblue, white);
+        };
+
+        th {
+            background-color: #878c8b;
+        };
+    };
+};
+
+    
+

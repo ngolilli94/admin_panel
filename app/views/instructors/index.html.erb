@@ -1,17 +1,34 @@
-<h1>Instructors</h1>
-<table>
-    <tr>
-        <th> Name </th> 
-        <th> Cohort </th>
-        <th> Edit </th>
-    </tr>
-    <tr>
-        <% @instructors.order('last_name ASC').each do |instructor_info| %>
-            <td> <a href="/instructors/<%= instructor_info.id%>"><%= instructor_info.last_name %> <%= instructor_info.first_name %> </a></td>
-            <% @cohort = Cohort.where(instructor_id:instructor_info.id) %>
-            <td> <%= @cohort.name %> </td>
-            <td> <button><a href="/instructors/<%= instructor_info.id %>/edit"><%= image_tag "icons8-edit-64.png" %></a></button></td>
-        <% end %>
-    </tr>
-</table>
+<div id="instructorContainer">
+    <h1>Instructors</h1>
+    <table id="instructorRoster">
+        <tr>
+            <th> Name </th> 
+            <th> Cohort(s) </th>
+            <th> Edit </th>
+        </tr>
+            <% @instructors.order('last_name ASC').each do |instructor_info| %>
+                <tr>
+                <% @cohort_amt = Cohort.where(instructor_id: instructor_info.id) %>
+                
+                <td rowspan="<%= @cohort_amt.length %>"> <a href="/instructors/<%= instructor_info.id%>"><%= instructor_info.last_name %> <%= instructor_info.first_name %> </a></td>
 
+                <% @instructor = Instructor.find(instructor_info.id) %>
+                <% @instructor_cohort = @instructor.cohorts %>
+                
+                <td rowspan="<%= @cohort_amt.length %>">
+                <% @instructor_cohort.each do |cohort_info| %>  
+            
+                <a href="/cohorts/<%= cohort_info.id%>"> <%= cohort_info.name %> </a> <br>
+                <% end %>
+                </td>
+                
+                <td rowspan="<%= @cohort_amt.length %>"> <a href="/instructors/<%= instructor_info.id %>/edit"><%= image_tag "icons8-edit-64.png", :class => "tableButton" %></a></td>
+            
+            </tr>
+            <% end %>
+    </table>
+
+    <div class="floatButton"> 
+        <a href="/instructors/new"> <%= image_tag "icons8-plus-64.png" %> </a> 
+    </div>
+</div>

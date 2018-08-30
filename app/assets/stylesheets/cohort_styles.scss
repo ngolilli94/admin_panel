@@ -1,0 +1,41 @@
+#cohortContainer {
+    width: 80%;
+    margin-left: 5%;
+
+    #courseHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    };
+
+    #cohortTable {
+        width: 80%;
+    };
+};
+
+#individualCohortContainer {
+    width: 85%;
+
+    #cohortHeader {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+    };
+
+    h3 {
+        margin: 0;
+    };
+
+    #cohortClassRoster {
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+            text-align: left;
+        }
+
+        table {
+            width: 85%;
+        }
+    };
+};

@@ -1,17 +1,24 @@
-<% @cohorts.each do |cohort_element| %>
-    <% @course = Course.find(cohort_element.course_id) %>
-    <div>
-        <h2> <%= @course.name %> </h2>
-        <h3> (<%= @course.hours %> hours) </h3>
-        <hr>
-    </div>
-    
-    <div>
-    <% @course_cohorts = Cohort.where(course_id:@course.id) %>
-    <% @course_cohorts.each do |each_cohort_info| %>
-        <span> <a href="/cohorts/<%= each_cohort_info.id%>"> <%= each_cohort_info.name %> </a> </span>
+<div id="cohortContainer">
+        <% @courses.each do |course_element| %>
+            <div id="courseHeader">
+                <div><h2> <%= course_element.name %> </h2></div>
+                <div><h3> (<%= course_element.hours %> hours) </h3></div>
+            </div>
+            <hr>
+            <table id="cohortTable">
+                <col width="150">
+                <col width="100">
+                <% @course_cohort = Cohort.where(course_id:course_element.id) %>
+                <% @course_cohort.each do |cohort_element| %>
+                    <tr>
+                        <td> <a href="/cohorts/<%= cohort_element.id %>"><%= cohort_element.name %> </a> </td>
+                        <% @instructor = Instructor.find(cohort_element.instructor_id) %>
+                        <td> <a href="/instructors/<%= cohort_element.instructor.id %>"> <%= @instructor.last_name %> </a> </td>
+                    </tr>
+                <% end %>
+            </table>
         <% end %>
-    <% @instructor = Instructor.find(cohort_element.instructor_id) %>
-        <span> <a href="/instructors/<%= cohort_element.instructor.id%>"> <%= @instructor.last_name %> </a> </span>
+    <div class="floatButton">
+        <a href="/cohorts/new"> <%= image_tag "icons8-plus-64.png" %></a>
     </div>
-<% end %>
+</div>
