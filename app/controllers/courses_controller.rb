@@ -29,9 +29,11 @@ class CoursesController < ApplicationController
 
         redirect_to :controller => 'courses', :action => 'show'
     end
+
+    private
+    def course_params
+        params.require(:course).permit(:name,:hours)
+    end
+
 end
 
-private
-def course_params
-    params.require(:course).permit(:name,:hours)
-end

@@ -29,9 +29,10 @@ class InstructorsController < ApplicationController
 
         redirect_to :controller => 'instructors', :action => 'show'
     end
-end
 
-private
-def instructor_params
-    params.require(:instructor).permit(:first_name,:last_name,:age,:salary,:education, :pic)
+    private
+    def instructor_params
+        params.require(:instructor).permit(:first_name,:last_name,:age,:salary,:education, :pic)
+    end
+
 end
