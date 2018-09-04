@@ -22,6 +22,15 @@
     };
 
     th {
-        background-color: #928e8e;
+        background-color: #5d4275;
     };
+};
+
+#individualStudentContainer {
+    display: flex;
+    justify-content: space-between;
+
+    #studentPic img {
+        max-width: 25vw;
+    };    
 };

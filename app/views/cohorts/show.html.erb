@@ -6,6 +6,7 @@
 
     <h3>(<%= @cohort.start_date.strftime("%B %d, %Y") %> - <%= @cohort.end_date.strftime("%B %d, %Y") %> )</h3>
     <h2> Instructor: <a href="/instructors/<%= @cohort_instructor.id%>"> <%= @cohort_instructor.first_name %> <%= @cohort_instructor.last_name %> </a> </h2>
+    <p> <%= @cohort.description %> </p>
     
     <div id="cohortClassRoster">
         <h3>Student Roster</h3>

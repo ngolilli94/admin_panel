@@ -1,11 +1,22 @@
 <div id="courseContainer">
   <% @courses.order('id ASC').each do |course_info| %>
-  <div id="individualCourse">
-      <h1> <a href="/courses/<%= course_info.id%>"> <%= course_info.name %> </a></h1>
+  <div id="course-<%= course_info.id %>">
+    
+    <div id="individualCourse">
+      <h2> <a href="/courses/<%= course_info.id%>"> <%= course_info.name %> </a></h2>
       <h3> Total Hours: <%= course_info.hours %> </h3>
+
+      <div id="courseEdit">
+        <a href="/courses/<%= course_info.id %>/edit"><%= image_tag "icons8-edit-64.png", :class => "tableButton" %></a>
+
+        <%= link_to image_tag('icons8-trash-can-64.png', :class => "tableButton"), course_path(course_info), method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
       </div>
-      <% end %>
+
+    </div>
+
   </div>
+  <% end %>
+</div>
 
   <div class="floatButton">
     <a href="/courses/new"> <%= image_tag "icons8-plus-64.png" %> </a> 

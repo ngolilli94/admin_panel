@@ -1,10 +1,31 @@
 <%= form_with model: @student do |form| %>
-    <ul>
-        <li> Last Name: <%= form.text_field :last_name %> </li>
-        <li> First Name: <%= form.text_field :first_name %> </li>
-        <li> Age: <%= form.number_field :age %> </li>
-        <li> Photo: <%= form.text_field :pic %> </li>
-        <li> Cohort ID: <%= form.number_field :cohort_id %> </li>
-        <li> <%= form.submit %> </li>
-    </ul>
+    <form>
+        <div class="field"> 
+            <label> Last Name: </label> 
+            <%= form.text_field :last_name %> 
+        </div>
+        <div class="field"> 
+            <label> First Name: </label>
+            <%= form.text_field :first_name %> 
+        </div>
+        <div class="field"> 
+            <label> Age: </label>
+            <%= form.number_field :age %> 
+        </div>
+        <div class="field"> 
+            <label> Photo: </label>
+            <%= form.text_field :pic %> 
+        </div>
+        <<div class="field"> 
+        <label> Cohort: </label>
+        <%= form.select(:cohort_id) do %>
+            <% @cohorts.order('name ASC').each do |cohort_select| %>
+              <%= content_tag(:option, cohort_select.name, value: cohort_select.id) %>
+            <% end %>
+        <% end %>
+    </div>
+        <div class="field"> 
+            <%= form.submit %> 
+        </div>
+    </form>
   <% end %>

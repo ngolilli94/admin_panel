@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController    
-    
+    before_action :authenticate_admin!
+
     def index
         @courses = Course.all
     end
@@ -27,7 +28,12 @@ class CoursesController < ApplicationController
         @course = Course.find(params[:id])
         @course.update(course_params)
 
-        redirect_to :controller => 'courses', :action => 'show'
+        redirect_to :controller => 'courses', :action => 'index'
+    end
+
+    def destroy
+        @course = Course.find(params[:id])
+        @course.destroy
     end
 
     private

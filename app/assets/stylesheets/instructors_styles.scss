@@ -21,10 +21,16 @@
         };
 
         th {
-            background-color: #878c8b;
+            background-color: #1f5394;
         };
     };
 };
 
-    
+#individualInstructorContainer {
+    display: flex;
+    justify-content: space-between;
 
+    #instructorPic img {
+        max-width: 25vw;
+    };    
+};

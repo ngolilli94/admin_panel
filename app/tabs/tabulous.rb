@@ -34,6 +34,13 @@ Tabulous.setup do
       active_when   { in_action('any').of_controller('students') }
     end
 
+    settings_tab do
+      text          { 'Account Settings' }
+      link_path     { edit_admin_registration_path }
+      visible_when  { true }
+      enabled_when  { true }
+      active_when   { in_action('any').of_controller('devise/registrations') }
+    end
   end
 
   customize do
@@ -66,9 +73,9 @@ Tabulous.setup do
   # This scaffolding should be turned off and replaced by your own custom
   # CSS before using tabulous in production.
   use_css_scaffolding do
-    background_color '#ccc'
+    background_color '#ffffff00'
     text_color '#444'
-    active_tab_color '#fff'
+    active_tab_color '#ffffffbf'
     hover_tab_color '#ddd'
     inactive_tab_color '#aaa'
     inactive_text_color '#888'

@@ -1,13 +1,65 @@
-$border: 3.1em solid lightgrey;
+$margin: 3.1em;
 $padding: 3em;
+$corner: 12px;
+
+body {
+    background-image: url(classroom_background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
+#homepage {
+    background-image: url(welcome_background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    h1 {
+        font-family: 'Tangerine', cursive;
+    }
+
+    h1, h3, p {
+        text-align: center;
+    }
+}
+
+nav {
+    width: 100%;
+    background-color: #7B6D8DB3;
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+
+    #logo {
+        width: 30%;
+        height: auto;
+    }
+}
 
 .tabContentContainer {
-    border-left: $border;
-    border-right: $border;
-    border-bottom: $border;
+    background-color: #ffffffbf;
+    border-radius: 0 $corner $corner $corner;
+    margin: 0 $margin $margin $margin;
     padding: $padding;
 }
 
 .tableButton {
     width: 10%;
 }
+
+form {
+    display: table;
+
+    .field {
+        display: table-row;
+
+        label {
+            display: table-cell;
+        }
+
+        input {
+            display: table-cell;
+        }
+    }
+}
+

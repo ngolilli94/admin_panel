@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AdminPanel</title>
+    <title>AT Academy</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type =>  'image/png' %>
   </head>
 
   <body>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+    <% if admin_signed_in? %>
+      <nav>
+        <span> <%= image_tag "logo.png", :id => "logo" %> </span>
+        <span> Welcome <%= current_admin.email %> </span>
+        <span> <%= link_to "Sign Out", destroy_admin_session_path, :method => :delete %> <span>
+      </nav>
+    <% else %>
+      <nav>
+        <span> <%= image_tag "logo.png", :id => "logo" %> </span>
+        <p> Don&apos;t have an account? <span> <a href="/admins/sign_up"> Sign Up here</a></span>! </p>
+      </nav>
+    <%end%>
 
-  <%= tabs %>
-  <div class="tabContentContainer">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <%= tabs %>
+    <div class="tabContentContainer">
 
     <%= yield %>
 

@@ -1,9 +1,35 @@
 <%= form_with model: @cohort do |form| %>
-    <ul>
-        <li> Cohort: <%= form.text_field :name %> </li>
-        <li> Run Dates: <%= form.date_field :start_date %> - <%= form.date_field :end_date %> </li>
-        <li> Course ID: <%= form.number_field :course_id %> </li>
-        <li> Instructor ID: <%= form.number_field :instructor_id %> </li>
-        <li> <%= form.submit %> </li>
-    </ul>
+    <form>
+        <div class="field"> 
+            <label> Cohort Name: </label>
+            <%= form.text_field :name %> 
+        </div>
+        <div class="field"> 
+            <label> Program Dates: </label>
+            <%= form.date_field :start_date %> - <%= form.date_field :end_date %> 
+        </div>
+        <div class="field"> 
+            <label> Description: </label>
+            <%=form.text_field :description %> 
+        </div>
+        <div class="field"> 
+            <label> Course: </label>
+            <%= form.select(:course_id) do %>
+                <% @courses.order('name ASC').each do |course_select| %>
+                  <%= content_tag(:option, course_select.name, value: course_select.id, prompt: "Select a course") %>
+                <% end %>
+            <% end %>
+        </div>
+        <div class="field"> 
+            <label> Instructor ID: </label>
+            <%= form.select(:instructor_id) do %>
+                <% @instructors.order('last_name ASC').each do |instructor_select| %>
+                  <%= content_tag(:option, instructor_select.last_name, value: instructor_select.id) %>
+                <% end %>
+            <% end %>
+        </div>
+        <div class="field"> <%= form.submit %> </div>
+    </form>
   <% end %>
+
+  

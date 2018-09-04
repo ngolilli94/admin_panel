@@ -2,12 +2,14 @@
     <h1>Instructors</h1>
     <table id="instructorRoster">
         <tr>
-            <th> Name </th> 
+            <th> Instructor </th> 
             <th> Cohort(s) </th>
             <th> Edit </th>
+            <th> Delete </th>
+
         </tr>
             <% @instructors.order('last_name ASC').each do |instructor_info| %>
-                <tr>
+            <tr id="instructor-<%= instructor_info.id %>">
                 <% @cohort_amt = Cohort.where(instructor_id: instructor_info.id) %>
                 
                 <td rowspan="<%= @cohort_amt.length %>"> <a href="/instructors/<%= instructor_info.id%>"><%= instructor_info.last_name %> <%= instructor_info.first_name %> </a></td>
@@ -23,6 +25,8 @@
                 </td>
                 
                 <td rowspan="<%= @cohort_amt.length %>"> <a href="/instructors/<%= instructor_info.id %>/edit"><%= image_tag "icons8-edit-64.png", :class => "tableButton" %></a></td>
+
+                <td rowspan="<%= @cohort_amt.length %>"> <%= link_to image_tag('icons8-trash-can-64.png', :class => "tableButton"), instructor_path(instructor_info), method: :delete, remote:true, data: { confirm: 'Are you sure?' } %> </td>
             
             </tr>
             <% end %>

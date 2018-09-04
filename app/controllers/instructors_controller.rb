@@ -1,5 +1,5 @@
 class InstructorsController < ApplicationController
-
+    before_action :authenticate_admin!
     def index
         @instructors = Instructor.all
     end
@@ -27,8 +27,13 @@ class InstructorsController < ApplicationController
         @instructor = Instructor.find(params[:id])
         @instructor.update(instructor_params)
 
-        redirect_to :controller => 'instructors', :action => 'show'
+        redirect_to :controller => 'instructors', :action => 'index'
     end
+
+    def destroy
+        @instructor = Instructor.find(params[:id])
+        @instructor.destroy
+      end
 
     private
     def instructor_params

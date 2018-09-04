@@ -1,11 +1,15 @@
-<div> 
-    <h1> <%= @instructor.first_name %> <%= @instructor.last_name %> </h1> <h3> (<%= @instructor.age %> years old) </h3>
-    <img src="<%= @instructor.pic %>">
-</div>
-<div>
-    <% @instructor_cohort.each do |cohort_info| %>  
-        <h3> <a href="/cohorts/<%= cohort_info.id%>"> <%= cohort_info.name %> </a> </h3>
-    <% end %>
-    <h3>Highest Level of Education: <%= @instructor.education %> </h3>
-    <h3>Salary: $<%= @instructor.salary %> </h3>
+<div id="individualInstructorContainer">
+    <div id="instructorInfo"> 
+        <h1> <%= @instructor.first_name %> <%= @instructor.last_name %> </h1> 
+        <h3> (<%= @instructor.age %> years old) </h3>
+        <% @instructor_cohort.each do |cohort_info| %>  
+            <h3> <a href="/cohorts/<%= cohort_info.id%>"> <%= cohort_info.name %> </a> </h3>
+        <% end %>
+        <h3>Highest Level of Education: <%= @instructor.education %> </h3>
+        <h3>Salary: $<%= @instructor.salary %> </h3>
+    </div>
+
+    <div id="instructorPic">
+        <img src="<%= @instructor.pic %>">
+    </div>
 </div>
