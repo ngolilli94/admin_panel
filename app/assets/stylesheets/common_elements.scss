@@ -7,6 +7,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0;
+    font-family: 'Quicksand', sans-serif;
 }
 
 #homepage {
@@ -14,11 +15,20 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 
-    h1, h3 {
+    h1 {
         font-family: 'Tangerine', cursive;
+        text-align: center;
+        font-size: 5vw
     }
 
-    h1, h3, p {
+    h2 {
+        font-family: 'Tangerine', cursive;
+        text-align: center;
+        font-size: 3vw;
+    }
+
+    p {
+        font-family: 'Quicksand', sans-serif;
         text-align: center;
     }
 }
@@ -29,11 +39,28 @@ nav {
     margin-top: 0;
     display: flex;
     justify-content: space-between;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.5vw;
 
     #logo {
         width: 30%;
         height: auto;
     }
+
+    a {
+        text-decoration: none;
+        padding: 8px;
+        color: #b39fef;
+    }
+
+    a:hover {
+        color: white;
+    }
+}
+
+.notice, .alert {
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .tabContentContainer {
@@ -62,4 +89,5 @@ form {
         }
     }
 }
+
 
