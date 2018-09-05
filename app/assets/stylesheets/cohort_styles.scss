@@ -6,25 +6,43 @@
         display: flex;
         justify-content: space-between;
         align-items: baseline;
-    };
+    }
 
     #cohortTable {
         width: 100%;
-    };
-};
+
+        tr td a {
+            text-decoration: none;
+            color: #47a9d8;
+        }
+
+        tr td a:hover {
+            color: #94a0b7;
+        }
+    }
+}
 
 #individualCohortContainer {
     width: 85%;
+
+    a {
+        text-decoration: none;
+        color: #47a9d8;
+    }
+
+    a:hover {
+        color: #94a0b7;
+    }
 
     #cohortHeader {
         display: flex;
         align-items: baseline;
         justify-content: space-between;
-    };
+    }
 
     h3 {
         margin: 0;
-    };
+    }
 
     #cohortClassRoster {
         table, th, td {
@@ -37,5 +55,21 @@
         table {
             width: 85%;
         }
-    };
-};
+
+        th {
+            background-color: #858a8a;
+        }
+
+        tr {
+            background-image: linear-gradient(to bottom right, #3073a2, #d0d2d4);
+
+            a {
+                color: #3a32af;
+            }
+
+            a:hover {
+                color: white;
+            }
+        }
+    }
+}

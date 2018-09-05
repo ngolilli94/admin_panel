@@ -2,7 +2,7 @@
     table, th, td {
         border: 1px solid black;
         border-collapse: collapse;
-    };
+    }
 
     #instructorRoster {
         width: 90%;
@@ -10,27 +10,44 @@
         th, td {
             text-align: left;
             padding: 5px;
-        };
+
+            a {
+                text-decoration: none;
+                color: #5c37a7;
+            }
+
+            a:hover {
+                color: #908f92;
+            }
+        }
 
         tr:nth-child(even) {
             background-image: linear-gradient(lightblue, white);
-        };
+        }
 
         tr:nth-child(odd) {
             background-image: linear-gradient(skyblue, white);
-        };
+        }
 
         th {
             background-color: #1f5394;
-        };
-    };
-};
+        }
+    }
+}
 
 #individualInstructorContainer {
     display: flex;
     justify-content: space-between;
 
+    #instructorInfo a {
+        text-decoration: none;
+        color: #47a9d8;
+    }
+    #instructorInfo a:hover {
+        color: #94a0b7;
+    }
+
     #instructorPic img {
         max-width: 25vw;
-    };    
-};
+    }    
+}
