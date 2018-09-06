@@ -39,7 +39,7 @@ Tabulous.setup do
       link_path     { edit_admin_registration_path }
       visible_when  { true }
       enabled_when  { true }
-      active_when   { in_action('any').of_controller('devise/registrations') }
+      active_when   { in_action('edit').of_controller('devise/registrations') }
     end
   end
 

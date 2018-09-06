@@ -21,7 +21,7 @@
             <% end %>
         </div>
         <div class="field"> 
-            <label> Instructor ID: </label>
+            <label> Instructor: </label>
             <%= form.select(:instructor_id) do %>
                 <% @instructors.order('last_name ASC').each do |instructor_select| %>
                   <%= content_tag(:option, instructor_select.last_name, value: instructor_select.id) %>
