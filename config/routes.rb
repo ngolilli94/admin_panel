@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   resources :instructors
   resources :students
 
+  authenticated do
+    root :to => 'courses#index'
+  end
+  
   root to: 'pages#home'
 end
