@@ -1,24 +1,27 @@
-# README
+# Anime Tropes Academy Admin Panel
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Goal
+To create an admin panel for a fictitious school whereby the administrator can create users and complete common administrative tasks.
 
-Things you may want to cover:
+## Summary
+This website is designed for administrators of a (fictitious) school, thus all users have the same accesss and are able to add, edit, view, and delete courses, cohorts, instructors, and students.
 
-* Ruby version
+## Deployment
+Deployed to Heroku at https://protected-beach-23099.herokuapp.com/
 
-* System dependencies
+#### Login Credentials
+*Username*: admin@somemail.com <br>
+*Password*: 123123
 
-* Configuration
+## Built Using
+* Ruby on Rails
+* ActiveRecord
+* PostgreSQL
+* Tabulous (https://github.com/techiferous/tabulous)
+* HTML
+* SCSS
+* JavaScript
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<img src="adminPanel_home.png">
+<img src="adminPanel_cohorts.png">
+<img src="adminPanel_cohortExample.png">
