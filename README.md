@@ -9,9 +9,13 @@ This website is designed for administrators of a (fictitious) school, thus all u
 ## Deployment
 Deployed to Heroku at https://protected-beach-23099.herokuapp.com/
 
-#### Login Credentials
+#### Login
 *Username*: admin@somemail.com <br>
 *Password*: 123123
+
+<img src="adminPanel_home.png">
+<img src="adminPanel_cohorts.png">
+<img src="adminPanel_cohortExample.png">
 
 ## Built Using
 * Ruby on Rails
@@ -21,7 +25,3 @@ Deployed to Heroku at https://protected-beach-23099.herokuapp.com/
 * HTML
 * SCSS
 * JavaScript
-
-<img src="adminPanel_home.png">
-<img src="adminPanel_cohorts.png">
-<img src="adminPanel_cohortExample.png">
