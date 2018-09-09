@@ -21,6 +21,7 @@ Deployed to Heroku at https://protected-beach-23099.herokuapp.com/
 * Ruby on Rails
 * ActiveRecord
 * PostgreSQL
+* Devise (https://github.com/plataformatec/devise)
 * Tabulous (https://github.com/techiferous/tabulous)
 * HTML
 * SCSS
