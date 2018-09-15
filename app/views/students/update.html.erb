@@ -10,7 +10,7 @@
         </div>
         <div class="field"> 
             <label> Age: </label>
-            <%= form.number_field :age %> 
+            <%= form.number_field :age, in: 1...151 %> 
         </div>
         <div class="field"> 
             <label> Photo: </label>
