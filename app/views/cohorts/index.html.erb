@@ -29,6 +29,39 @@
             <% end %>
         </table>
     <% end %>
+
+    <% @no_course = Cohort.where(course_id: nil) %>
+    <% if @no_course %>
+    <div id="courseHeader">
+            <div><h2> N/A </h2></div>
+            <div><h3> (N/A) </h3></div>
+        </div>
+        <hr>
+        <table id="cohortTable">
+            <col width="150">
+            <col width="100">
+            <col width="85">
+            <col width="85">
+            <% @no_course.each do |no_course_cohort| %>
+                <tr id="cohort-<%= no_course_cohort.id %>">
+                    <td> <a href="/cohorts/<%= no_course_cohort.id %>"><%= no_course_cohort.name %> </a> </td>
+
+                    <% if no_course_cohort.instructor_id.nil?%>
+                        <td>Currently no instructor</td>
+                    <%else%>
+                        <% @instructor = Instructor.find(no_course_cohort.instructor_id) %>
+                        <td> <a href="/instructors/<%= no_course_cohort.instructor.id %>"> <%= @instructor.last_name %> </a> </td>
+                    <%end%>
+
+                    <td> <a href="/cohorts/<%= no_course_cohort.id %>/edit"><%= image_tag "icons8-edit-64.png", :class => "tableButton" %></a> </td>
+
+                    <td> <%= link_to image_tag('icons8-trash-can-64.png', :class => "tableButton"), cohort_path(no_course_cohort), method: :delete, remote:true, data: { confirm: 'Are you sure?' } %> </td>
+                </tr>
+            <% end %>
+        </table>
+    <% end %>
+    
+
     <div class="floatButton">
         <a href="/cohorts/new"> <%= image_tag "icons8-plus-64.png" %></a>
     </div>
