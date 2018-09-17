@@ -15,8 +15,12 @@
 
             <td> <%= student_info.age %> </td>
 
-            <% @cohort = Cohort.find(student_info.cohort_id) %>
-            <td> <a href="/cohorts/<%= @cohort.id %>"> <%= @cohort.name %> </a> </td>
+            <% if student_info.cohort_id.nil?%>
+                <td>N/A</td>
+            <%else%>
+                <% @cohort = Cohort.find(student_info.cohort_id) %>
+                <td> <a href="/cohorts/<%= @cohort.id %>"> <%= @cohort.name %> </a> </td>
+            <%end%>
 
             <td> <a href="/students/<%= student_info.id %>/edit"><%= image_tag "icons8-edit-64.png", :class => "tableButton" %></a> </td>
 
