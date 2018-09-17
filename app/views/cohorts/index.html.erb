@@ -15,8 +15,12 @@
                 <tr id="cohort-<%= cohort_element.id %>">
                     <td> <a href="/cohorts/<%= cohort_element.id %>"><%= cohort_element.name %> </a> </td>
 
-                    <% @instructor = Instructor.find(cohort_element.instructor_id) %>
-                    <td> <a href="/instructors/<%= cohort_element.instructor.id %>"> <%= @instructor.last_name %> </a> </td>
+                    <% if cohort_element.instructor_id.nil?%>
+                        <td>Currently no instructor</td>
+                    <%else%>
+                        <% @instructor = Instructor.find(cohort_element.instructor_id) %>
+                        <td> <a href="/instructors/<%= cohort_element.instructor.id %>"> <%= @instructor.last_name %> </a> </td>
+                    <%end%>
 
                     <td> <a href="/cohorts/<%= cohort_element.id %>/edit"><%= image_tag "icons8-edit-64.png", :class => "tableButton" %></a> </td>
 
