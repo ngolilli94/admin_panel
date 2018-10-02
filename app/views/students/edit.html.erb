@@ -18,11 +18,7 @@
         </div>
         <div class="field"> 
             <label> Cohort: </label>
-            <%= form.select(:cohort_id) do %>
-                <% @cohorts.order('name ASC').each do |cohort_select| %>
-                  <%= content_tag(:option, cohort_select.name, value: cohort_select.id) %>
-                <% end %>
-            <% end %>
+            <%= form.select :cohort_id, options_for_select(@cohorts.collect {|c| [c.name, c.id]}, @student.cohort_id) %>
         </div>
         <div class="field"> 
             <%= form.submit %> 
