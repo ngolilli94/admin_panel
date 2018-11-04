@@ -66,3 +66,6 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'devise'
 
 gem 'tabulous'
+
+#Github detected security issue fix
+gem "loofah", ">= 2.2.3"
